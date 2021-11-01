@@ -34,6 +34,8 @@ jobs:
           gem install danger-checkstyle_format
           gem install danger-android_lint
           gem install danger-junit
+      - name: lint
+        run: ./gradlew lint
       - name: Run Danger
         env:
           DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
