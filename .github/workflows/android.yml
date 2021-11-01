@@ -28,8 +28,6 @@ jobs:
           ruby-version: 2.6
           bundler-cache: true
       - name: Setup danger
-        env:
-          DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
         run: |
           gem install nokogiri
           gem install danger
@@ -37,4 +35,6 @@ jobs:
           gem install danger-android_lint
           gem install danger-junit
       - name: Run Danger
+        env:
+          DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
         run: danger
