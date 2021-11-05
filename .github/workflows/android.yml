@@ -37,6 +37,7 @@ jobs:
       - name: lint
         run: ./gradlew lint
       - name: Run Danger
+        if: cancelled() != true
         env:
           DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
         run: danger
